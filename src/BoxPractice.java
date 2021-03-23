@@ -40,5 +40,7 @@ public class BoxPractice {
     public static void printVar(int a) {
         System.out.println(a);
         a= 40;
+        System.out.println("agila");
+     
     }
 }

@@ -18,3 +18,5 @@
   // Example - Double click
         actions.moveToElement(aside).pause(4000).doubleClick().build().perform();
 ```
+
+# TEST SYNCHRONIZATION OR WAITS

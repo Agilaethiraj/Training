@@ -16,8 +16,8 @@ public class ActionDemo {
 
     @BeforeSuite
     public void setUp() {
-        System.setProperty("webdriver.gecko.driver","/Users/atinsingh/Downloads/geckodriver");
-        System.setProperty("webdriver.chrome.driver","/Users/atinsingh/Downloads/drivers/chromedriver");
+       /* System.setProperty("webdriver.gecko.driver","/Users/atinsingh/Downloads/geckodriver");*/
+        System.setProperty("webdriver.chrome.driver","/Users/agilaethiraj/Downloads/chromedriver");
         driver = new ChromeDriver();
     }
 
@@ -57,6 +57,15 @@ public class ActionDemo {
 
         WebElement result = driver.findElement(By.id("result"));
         result.click();
+        WebElement element = driver.findElement(By.xpath("//*[@id=\"css\"]/a"));
+        element.click();
+        driver.navigate().to("https://jqueryui.com/droppable/");
+        WebElement element1 = driver.findElement(By.className("demo-frame"));
+        driver.switchTo().frame(element1);
+        WebElement element2 = driver.findElement(By.id("draggable"));
+        WebElement droppable = driver.findElement(By.id("droppable"));
+        Actions ac=new Actions(driver);
+        ac.dragAndDrop(element2,droppable).build().perform();
 
         driver.navigate().to("https://jqueryui.com/droppable/");
 

@@ -57,6 +57,16 @@ public class ActionDemo {
         WebElement result = driver.findElement(By.id("result"));
         result.click();
 
+        driver.navigate().to("https://jqueryui.com/droppable/");
+
+        driver.switchTo().frame(driver.findElement(By.className("demo-frame")));
+
+        WebElement dragable = driver.findElement(By.id("draggable"));
+        WebElement droppable = driver.findElement(By.id("droppable"));
+
+        actions.dragAndDrop(dragable, droppable).build().perform();
+
+
 
 
     }

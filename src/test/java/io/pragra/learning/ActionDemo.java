@@ -17,7 +17,7 @@ public class ActionDemo {
     public void setUp() {
         System.setProperty("webdriver.gecko.driver","/Users/atinsingh/Downloads/geckodriver");
         System.setProperty("webdriver.chrome.driver","/Users/atinsingh/Downloads/drivers/chromedriver");
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
     }
 
     @Test
@@ -43,6 +43,21 @@ public class ActionDemo {
                 .click()
                 .build()
                 .perform();
+
+        driver.navigate().to("https://developer.mozilla.org/en-US/docs/Web/API/Element/dblclick_event");
+        WebElement frame_examples = driver.findElement(By.id("frame_Examples"));
+        driver.switchTo().frame(frame_examples);
+
+        WebElement aside = driver.findElement(By.tagName("aside"));
+
+        actions.moveToElement(aside).pause(4000).doubleClick().build().perform();
+
+        driver.switchTo().parentFrame();
+
+        WebElement result = driver.findElement(By.id("result"));
+        result.click();
+
+
 
     }
 
